@@ -2,6 +2,7 @@ import React from 'react';
 import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 
+//padding in a log as a prop from logs.js
 const LogItem = ({ log }) => {
   return (
     <li className='collection-item'>
