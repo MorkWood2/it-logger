@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react';
+//connect redux to this component
 import { connect } from 'react-redux';
 import LogItem from './LogItem';
 import Preloader from '../layout/Preloader';
 import PropTypes from 'prop-types';
 import { getLogs } from '../../actions/logActions';
 
+//pull logs and loading from log reducer state
+//log is the prop defined at the bottom
+//which is the initial state from reducer
+//so {log, loading} is from intitial state.
 const Logs = ({ log: { logs, loading }, getLogs }) => {
   useEffect(() => {
     getLogs();
@@ -34,8 +39,8 @@ Logs.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  // log is prop : state.log is in our root reducer
+  // log is prop name (can be any name): state.log is in our root reducer
   log: state.log
 });
-
+//connect()(component name)
 export default connect(mapStateToProps, { getLogs })(Logs);
